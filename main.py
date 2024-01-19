@@ -1,18 +1,13 @@
 import psutil
 import speedtest
-# from speedtest import Speedtest
 import platform
 import socket
 import wmi
 import platform
 import subprocess
 import uuid
-# from speedtest import Speedtest
 import subprocess
 
-# def get_installed_software():
-#     software_list = subprocess.check_output(['wmic', 'product', 'get', 'name']).decode('utf-8').split('\n')[1:-1]
-#     return [software.strip() for software in software_list if software.strip()]
 def get_installed_software():
     c = wmi.WMI()
     software_list = []
@@ -21,23 +16,6 @@ def get_installed_software():
         software_list.append(product.Caption)
 
     return software_list
-
-# def get_internet_speed():
-#     st = speedtest.Speedtest()
-#     download_speed = st.download() / 10**6  # in Mbps
-#     upload_speed = st.upload() / 10**6  # in Mbps
-#     return download_speed, upload_speed
-
-# def get_internet_speed():
-#     st = speedtest.Speedtest()
-#     download_speed = st.download() / 10**6  # in Mbps
-#     upload_speed = st.upload() / 10**6  # in Mbps
-#     return download_speed, upload_speed
-# def get_internet_speed():
-#     st = Speedtest()
-#     download_speed = st.download() / 10**6  # in Mbps
-#     upload_speed = st.upload() / 10**6  # in Mbps
-#     return download_speed, upload_speed
 
 def get_internet_speed():
     try:
@@ -113,12 +91,8 @@ def get_windows_version():
 
 if __name__ == "__main__":
     print("Installed Software:")
-    # print(get_installed_software())
+    print(get_installed_software())
 
-    # print("\nInternet Speed:")
-    # download_speed, upload_speed = get_internet_speed()
-    # print(f"Download Speed: {download_speed:.2f} Mbps")
-    # print(f"Upload Speed: {upload_speed:.2f} Mbps")
     print("\nInternet Speed:")
     speed_results = get_internet_speed()
 
